@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Making a counter component</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .counter{
+            background-color:lightblue;
+            display: flex;
+
+        }
+        /* means only style immediate buttons in counter selector */
+        .counter > button{
+            border: none;
+            border-radius: 5px;
+            width: 30px;
+            height: 30px;
+            background-color: rgb(141, 160, 197);
+            margin: 5px;
+            
+        }/* means only style immediate a div in counter selector */
+        .counter > div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+        }
+        .bar{
+            width: 8px;
+            height: 15px;
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="counter">
+        <button onclick ="decreaseNum()">-</button>
+        <div>1</div>
+        <button onclick ="increaseNum()">+</button>
+    </div>
+    <div>
+        <div class ="bar"></div>
+    </div>
+
+    <script>
+        // function debugger(){
+        // debugger; // frezze the screen and test the each function if it is working
+        // }
+        var num = 1; //telling a computer to find a space and name it num
+        function decreaseNum(){
+            num = num -1; //do the expression with the num
+            document.querySelector(".counter > div").innerText = num; //change inner text with a num value regardless what was in there
+            document.querySelector(".bar").style.width=(num*10)+"px";
+        }
+        
+        function increaseNum(){
+            num = num +1;
+            document.querySelector(".counter > div").innerText = num
+            document.querySelector(".bar").style.width=(num*10)+"px";
+        }
+    </script>
+
+
+</body>
+</html>
